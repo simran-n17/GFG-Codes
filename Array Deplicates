@@ -1,0 +1,26 @@
+class Solution {
+    public static ArrayList<Integer> duplicates(int[] arr) {
+        // code here
+        HashSet<Integer> set=new HashSet<>();
+        HashSet<Integer> addedToQueue=new HashSet<>();              // to void duplicacy in the queue.
+        PriorityQueue<Integer> pq= new PriorityQueue<>((a,b)->a-b);
+        for(int x:arr){
+            if(set.contains(x) && !addedToQueue.contains(x)){
+                pq.add(x);
+                addedToQueue.add(x);
+            }
+            else{
+                set.add(x);
+            }
+        }
+        ArrayList<Integer> nums=new ArrayList<>();
+        if(pq.isEmpty()){
+            nums.add(-1);
+            return nums;
+        }
+        while(!pq.isEmpty()){
+            nums.add(pq.poll());
+        }
+        return nums;
+    }
+}
