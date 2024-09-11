@@ -1,0 +1,21 @@
+class Solution {
+    public int print2largest(int[] arr) {
+        HashSet<Integer> set=new HashSet<>();
+        PriorityQueue<Integer> pq= new PriorityQueue<>((a,b)-> b-a);
+        for(int x: arr){
+            if(!set.contains(x)){
+                set.add(x);
+                pq.add(x);
+            }
+        }
+        int num2=0;
+        if(pq.size()==1){
+            return -1;
+        }
+        else{
+            int num1=pq.poll();
+            num2=pq.poll();
+        }
+        return num2;
+    }
+}
