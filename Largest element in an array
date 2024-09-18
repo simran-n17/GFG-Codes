@@ -1,0 +1,10 @@
+class Solution {
+    public static int largest(int[] arr) {
+        PriorityQueue<Integer> pq=new PriorityQueue<>((a,b)->b-a);
+        for(int x:arr){
+            pq.add(x);
+        }
+        int ele=pq.peek();
+        return ele;
+    }
+}
